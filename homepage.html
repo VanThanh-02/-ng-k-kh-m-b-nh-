@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Bệnh Nhân</title>
+    <script type="module" src="./auth.js"></script>
+    <script type="module" src="./addPatient.js"></script> <!-- Đường dẫn tới file chứa mã JavaScript -->
+    <style>
+        body {
+            padding: 30px;
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 600px; /* Đảm bảo container không quá rộng */
+            margin: 0 auto; /* Căn giữa container */
+            padding: 20px; /* Thêm padding */
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label, select, input, textarea {
+            display: block;
+            width: 100%;
+            margin: 15px 0;
+            padding: 12px;
+            font-size: 1rem;
+        }
+
+        input[type="text"], input[type="email"], textarea, select {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: calc(100% - 24px);
+        }
+
+        input[type="date"] {
+            max-width: 300px; /* Thay đổi kích thước theo nhu cầu */
+            width: 100%; /* Đảm bảo nó chiếm toàn bộ chiều rộng nếu cần */
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        h2, h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        span {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: black;
+        }
+
+        #logout {
+            background-color: #FF6347;
+            color: white;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #logout:hover {
+            background-color: #FF4500;
+        }
+
+        .time-picker-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .time-picker-container div {
+            width: 48%;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FF6347;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none; 
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thêm Thông Tin Bệnh Nhân</h1>
+    <div class="container"> <!-- Thêm div mới để cân giữa -->
+        <div class="form-container">
+            <label for="patientName">Tên Bệnh Nhân:</label>
+            <input type="text" id="patientName" required>
+
+            <label for="gender">Giới Tính:</label>
+            <select id="gender" required>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+            </select>
+
+            <label for="dob">Ngày Sinh:</label>
+            <input type="date" id="dob" required>
+
+            <label for="occupation">Nghề Nghiệp:</label>
+            <input type="text" id="occupation" required>
+
+            <label for="address">Địa Chỉ:</label>
+            <input type="text" id="address" required>
+
+            <label for="medicalHistory">Tiền Sử Bệnh:</label>
+            <textarea id="medicalHistory" required></textarea>
+
+            <label for="currentHealth">Tình Trạng Hiện Tại:</label>
+            <textarea id="currentHealth" required></textarea>
+
+            <label for="appointmentDate">Ngày Hẹn:</label>
+            <input type="date" id="appointmentDate" required>
+
+            <label for="startTime">Giờ Bắt Đầu:</label>
+            <input type="time" id="startTime" required>
+
+            <label for="endTime">Giờ Kết Thúc:</label>
+            <input type="time" id="endTime" required>
+
+            <button type="button" id="submitInfo">Thêm Bệnh Nhân</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initEventListeners } from './homepage.js'; // Đảm bảo đường dẫn đúng
+
+        // Gọi hàm để khởi tạo các sự kiện
+        initEventListeners();
+    </script>
+</body>
+</html>
